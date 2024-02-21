@@ -1,0 +1,33 @@
+﻿@using OBSMVC.Models
+@model OBSMVC.Models.AdminLogin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminLogin</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <label for="aun">User Name</label>
+            @Html.TextBoxFor(c => c.UserName, new { id = "aun" })
+            <br /> <br />
+
+            <label for="apwd">Password</label>
+            @Html.TextBoxFor(c => c.Pwd, new { id = "apwd" })
+            <br /> <br />
+
+            <input type="submit" value="Login" />
+            <br /> <br />
+            <label id="Admvalidate">@ViewBag.e</label>
+        }
+    </div>
+</body>
+</html>

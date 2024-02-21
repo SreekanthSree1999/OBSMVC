@@ -1,0 +1,44 @@
+﻿@using OBSMVC.Models
+@model OBSMVC.Models.NewCustomer
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>New Customer</title>
+</head>
+<body>
+    <div>
+        <form id="newUserForm" method="post" action="@Url.Action("Newcustomer", "MiniProject1Entities")">
+            <h1>New User</h1>
+
+            <label for="Name">Enter Customer Name</label> @Html.TextBoxFor(t => t.Name, new { id = "Name" })<br /><br />
+
+            <label for="AccessCode">Provide Access Code</label> @Html.TextBoxFor(t => t.AccessCode, new { id = "AccessCode" })<br /><br />
+
+            <label for="DOB">DOB</label>@Html.TextBoxFor(t => t.DOB, new { id = "DOB", type = "date" })<br /><br />
+
+            <label for="PhoneNumber">Phone Number</label> @Html.TextBoxFor(t => t.PhoneNumber, new { id = "PhoneNumber" })<br /><br />
+
+            <label for="Address">Address</label> @Html.TextBoxFor(t => t.Address, new { id = "Address" })<br /><br />
+
+            <label for="AccoutType">Account Type</label>
+
+            @Html.DropDownList("AccoutType", new List<SelectListItem>()
+            {   new SelectListItem() { Text = "Current Account", Value = "CurrentAccount" },
+                new SelectListItem() { Text = "Savings Account", Value = "SavingsAccount" },
+                new SelectListItem() { Text = "Fixed Account", Value = "FixedAccount" },
+            }, "Select Account Type") <br /><br />
+
+            <br /><br />
+
+            <input type="submit" value="Create Account" /><br /><br />
+            <label id="insertop">@ViewBag.e</label>
+        </form>
+    </div>
+</body>
+</html>
